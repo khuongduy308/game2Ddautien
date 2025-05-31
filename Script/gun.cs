@@ -24,6 +24,7 @@ public class gun : MonoBehaviour
     {
         RotateGun();
         Shoot();
+        ReLoad();
     }
     void RotateGun()
     {
@@ -55,6 +56,13 @@ public class gun : MonoBehaviour
             nextShot = Time.time + shotDelay;
             Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
             currentAmmo--;
+        }
+    }
+    void ReLoad()
+    {
+        if (Input.GetMouseButtonDown(1) && currentAmmo < maxAmmo)
+        {
+            currentAmmo = maxAmmo;
         }
     }
 }
