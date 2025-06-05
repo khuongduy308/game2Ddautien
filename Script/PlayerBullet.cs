@@ -20,4 +20,16 @@ public class PlayerBullet : MonoBehaviour
     {
         transform.Translate(Time.deltaTime * moveSpeed * Vector2.right);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDame();
+            }
+            Destroy(gameObject);
+        }
+    }
 }

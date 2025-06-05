@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         MovePlayer();
@@ -49,5 +49,13 @@ public class Player : MonoBehaviour
             animator.SetBool("isRun", false);
         }
 
+    }
+    public void TakeDame()
+    {
+        Die();
+    }
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }

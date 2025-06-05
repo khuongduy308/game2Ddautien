@@ -27,5 +27,12 @@ public abstract class Enemy : MonoBehaviour
     {
         transform.localScale = new Vector3(player.transform.position.x < transform.position.x ? -1 : 1, 1, 1);
     }
-
+    public virtual void TakeDame()
+    {
+        Die();
+    }
+    protected virtual void Die()
+    {
+        Destroy(gameObject);
+    }
 }
