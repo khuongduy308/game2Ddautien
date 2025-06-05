@@ -2,14 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected float enemyMoveSpeed = 1f;
     protected Player player;
+    [SerializeField] protected float maxHP = 50f;
+    protected float currentHP = 0;
+    [SerializeField] private Image hpBar;
+    [SerializeField] protected float enterDamage = 20f;
+    [SerializeField] protected float stayDamage = 2f;
     protected virtual void Start()
     {
         player = FindAnyObjectByType<Player>();
+        currentHP = maxHP;
+        UpdateHpBar();
     }
     protected virtual void Update()
     {
@@ -27,12 +35,25 @@ public abstract class Enemy : MonoBehaviour
     {
         transform.localScale = new Vector3(player.transform.position.x < transform.position.x ? -1 : 1, 1, 1);
     }
-    public virtual void TakeDame()
+    public virtual void TakeDame(float damage)
     {
-        Die();
+        currentHP -= damage;
+        currentHP = Mathf.Max(currentHP, 0);
+        UpdateHpBar();
+        if (currentHP <= 0)
+        {
+            Die();
+        }
     }
     protected virtual void Die()
     {
         Destroy(gameObject);
+    }
+    private void UpdateHpBar()
+    {
+        if (hpBar != null)
+        {
+            hpBar.fillAmount = currentHP / maxHP;
+        }
     }
 }

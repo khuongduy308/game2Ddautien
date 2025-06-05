@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private Animator animator;
+    [SerializeField] protected float maxHP = 50f;
+    protected float currentHP = 0;
+    [SerializeField] private Image hpBar;
 
     public void Awake()
     {
@@ -17,7 +21,8 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-
+        currentHP = maxHP;
+        UpdateHpBar();
     }
 
 
@@ -50,12 +55,25 @@ public class Player : MonoBehaviour
         }
 
     }
-    public void TakeDame()
+    public virtual void TakeDame(float damage)
     {
-        Die();
+        currentHP -= damage;
+        currentHP = Mathf.Max(currentHP, 0);
+        UpdateHpBar();
+        if (currentHP <= 0)
+        {
+            Die();
+        }
     }
-    private void Die()
+    protected virtual void Die()
     {
         Destroy(gameObject);
+    }
+    private void UpdateHpBar()
+    {
+        if (hpBar != null)
+        {
+            hpBar.fillAmount = currentHP / maxHP;
+        }
     }
 }
