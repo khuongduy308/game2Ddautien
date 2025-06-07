@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6864081365424798247}
   m_Layer: 0
   m_Name: PlayerBullet
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,3 +145,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 24
   timeDestroy: 0.5
+  damage: 10
+  BloodEffect: {fileID: 2200123363433675835, guid: a259c0f64366ee94686deb14dd19c9fd, type: 3}

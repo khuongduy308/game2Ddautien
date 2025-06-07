@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2070935513038977208}
   - component: {fileID: 5855442649148917921}
   - component: {fileID: 1620414158707907672}
+  - component: {fileID: 683423028607600351}
   m_Layer: 0
   m_Name: ExplosionEnemy
   m_TagString: Enemy
@@ -178,6 +179,27 @@ MonoBehaviour:
   enterDamage: 20
   stayDamage: 2
   explosionPrefabs: {fileID: 1871974209094412127, guid: 7aaacc67b5715bd45ad710e79a22dfc0, type: 3}
+--- !u!95 &683423028607600351
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524037135633240387}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c63f8af872bf179428688bd2589e2806, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6151052067454969515
 PrefabInstance:
   m_ObjectHideFlags: 0

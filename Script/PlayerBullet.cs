@@ -7,6 +7,7 @@ public class PlayerBullet : MonoBehaviour
     [SerializeField] private float moveSpeed = 24f;
     [SerializeField] private float timeDestroy = 0.5f;
     [SerializeField] private float damage = 10f;
+    [SerializeField] GameObject BloodEffect;
     void Start()
     {
         Destroy(gameObject, timeDestroy);
@@ -29,6 +30,8 @@ public class PlayerBullet : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDame(damage);
+                GameObject blood = Instantiate(BloodEffect, transform.position, Quaternion.identity);
+                Destroy(blood, 1f);
             }
             Destroy(gameObject);
         }
