@@ -178,7 +178,7 @@ MonoBehaviour:
   hpBar: {fileID: 3125434323076523957}
   enterDamage: 20
   stayDamage: 2
-  healValue: 5
+  healValue: 20
 --- !u!95 &107093126867741670
 Animator:
   serializedVersion: 5

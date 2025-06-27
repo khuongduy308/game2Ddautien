@@ -14,6 +14,7 @@ public class BossEnemy : Enemy
     [SerializeField] private GameObject miniEnemy;
     [SerializeField] private float skillCooldown = 10f; // Thời gian chờ giữa các lần bắn
     private float skillTimer = 0f;
+    [SerializeField] private GameObject Usb;
 
     protected override void Update()
     {
@@ -25,6 +26,11 @@ public class BossEnemy : Enemy
 
     }
 
+    protected override void Die()
+    {
+        Instantiate(Usb, transform.position, Quaternion.identity);
+        base.Die();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
